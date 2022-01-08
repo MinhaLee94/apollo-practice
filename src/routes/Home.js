@@ -70,7 +70,7 @@ const Home = () => {
 			<Movies>
 				{data?.movies.map((movie) => 
 					<Movie key={movie.id} id={movie.id} bg={movie.medium_cover_image} isLiked={movie.isLiked}/>
-				)})
+				)}
 			</Movies>
 		</Container>
 	);
