@@ -8,6 +8,7 @@ const GET_MOVIES = gql`
     movies {
       id
       medium_cover_image
+	  isLiked @client
     }
   }
 `;
@@ -66,13 +67,11 @@ const Home = () => {
 				<Subtitle>React, GraphQL and Apollo</Subtitle>
 			</Header>
 			{loading && <Loading>Loading...</Loading>}
-			{!loading && data.movies && (
-				<Movies>
-					{data.movies.map((movie) => 
-						<Movie key={movie.id} id={movie.id} bg={movie.medium_cover_image}/>
-					)})
-				</Movies>
-			)}
+			<Movies>
+				{data?.movies.map((movie) => 
+					<Movie key={movie.id} id={movie.id} bg={movie.medium_cover_image} isLiked={movie.isLiked}/>
+				)})
+			</Movies>
 		</Container>
 	);
 };

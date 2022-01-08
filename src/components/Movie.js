@@ -18,11 +18,12 @@ const Poster = styled.div`
 `;
 
 
-const Movie = ({ id, bg }) => (
+const Movie = ({ id, bg, isLiked }) => (
   <Container>
     <Link to={`/${id}`}>
 		<Poster bg={bg}/>
 	</Link>
+	<button>{ isLiked ? "Unlike" : "Like" }</button>
   </Container>
 );
 
